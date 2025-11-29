@@ -1,49 +1,49 @@
 common:
-  containerRegistryURL: devopsinsidersacr235.azurecr.io
+  containerRegistryURL: sohitacrdev01.azurecr.io
   ingressClass: nginx
   
 ui:
   replicas: 2
   image:
     name: todo-ui
-    tag: v4
+    tag: v3
   port: 80
   ServicePort: 80
   ingress:
-    host: dev-ui.jhandu.shop
+    host: dev-ui.sohitguptadevops.online
 
 getTask:
   replicas: 2
   image:
     name: todo-get-tasks-api
-    tag: v1
+    tag: v2
   port: 8000
   ServicePort: 80
-  connectionString: "Driver={ODBC Driver 18 for SQL Server};Server=tcp:sql-dev-todoapp-78666.database.windows.net,1433;Database=sqldb-dev-todoapp;Uid=devopsadmin;Pwd=P@ssw01rd@123;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;"
+  connectionString: "Driver={ODBC Driver 18 for SQL Server};Server=tcp:sohit-devsqlserver1.database.windows.net,1433;Database=sohit-devsqldb1;Uid=sqladminuser;Pwd=P@ssw0rd1234!;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;"
   ingress:
-    host: dev-get-tasks-api.jhandu.shop
+    host: dev-get-tasks-api.sohitguptadevops.online
     ingressClass: nginx
 
 deleteTask:
   replicas: 2
   image:
     name: todo-delete-tasks-api
-    tag: v1
+    tag: v2
   port: 8000
   ServicePort: 80
-  connectionString: "Driver={ODBC Driver 18 for SQL Server};Server=tcp:sql-dev-todoapp-78666.database.windows.net,1433;Database=sqldb-dev-todoapp;Uid=devopsadmin;Pwd=P@ssw01rd@123;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;"
+  connectionString: "Driver={ODBC Driver 18 for SQL Server};Server=tcp:sohit-devsqlserver1.database.windows.net,1433;Database=sohit-devsqldb1;Uid=sqladminuser;Pwd=P@ssw0rd1234!;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;"
   ingress:
-    host: dev-delete-task-api.jhandu.shop
+    host: dev-delete-task-api.sohitguptadevops.online
     ingressClass: nginx
 
 addTask:
   replicas: 2
   image:
     name: todo-add-tasks-api
-    tag: v1
+    tag: v2
   port: 8000
   ServicePort: 80
-  connectionString: "Driver={ODBC Driver 18 for SQL Server};Server=tcp:sql-dev-todoapp-78666.database.windows.net,1433;Database=sqldb-dev-todoapp;Uid=devopsadmin;Pwd=P@ssw01rd@123;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;"
+  connectionString: "Driver={ODBC Driver 18 for SQL Server};Server=tcp:sohit-devsqlserver1.database.windows.net,1433;Database=sohit-devsqldb1;Uid=sqladminuser;Pwd=P@ssw0rd1234!;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;"
   ingress:
-    host: dev-add-task-api.jhandu.shop
+    host: dev-add-task-api.sohitguptadevops.online
     ingressClass: nginx
