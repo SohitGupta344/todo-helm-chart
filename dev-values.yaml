@@ -1,6 +1,6 @@
 common:
   containerRegistryURL: sohitacrdev01.azurecr.io
-  ingressClass: nginx
+  ingressClass: azure-application-gateway
   
 ui:
   replicas: 2
@@ -11,6 +11,7 @@ ui:
   ServicePort: 80
   ingress:
     host: dev-ui.sohitguptadevops.online
+    ingressClass: azure-application-gateway
 
 getTask:
   replicas: 2
@@ -22,7 +23,7 @@ getTask:
   connectionString: "Driver={ODBC Driver 18 for SQL Server};Server=tcp:sohit-devsqlserver1.database.windows.net,1433;Database=sohit-devsqldb1;Uid=sqladminuser;Pwd=P@ssw0rd1234!;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;"
   ingress:
     host: dev-get-tasks-api.sohitguptadevops.online
-    ingressClass: nginx
+    ingressClass: azure-application-gateway
 
 deleteTask:
   replicas: 2
@@ -34,7 +35,7 @@ deleteTask:
   connectionString: "Driver={ODBC Driver 18 for SQL Server};Server=tcp:sohit-devsqlserver1.database.windows.net,1433;Database=sohit-devsqldb1;Uid=sqladminuser;Pwd=P@ssw0rd1234!;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;"
   ingress:
     host: dev-delete-task-api.sohitguptadevops.online
-    ingressClass: nginx
+    ingressClass: azure-application-gateway
 
 addTask:
   replicas: 2
@@ -46,4 +47,4 @@ addTask:
   connectionString: "Driver={ODBC Driver 18 for SQL Server};Server=tcp:sohit-devsqlserver1.database.windows.net,1433;Database=sohit-devsqldb1;Uid=sqladminuser;Pwd=P@ssw0rd1234!;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;"
   ingress:
     host: dev-add-task-api.sohitguptadevops.online
-    ingressClass: nginx
+    ingressClass: azure-application-gateway
