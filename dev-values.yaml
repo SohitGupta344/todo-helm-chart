@@ -10,7 +10,7 @@ ui:
   port: 80
   ServicePort: 80
   ingress:
-    host: dev-ui.sohitguptadevops.online
+    host: ui.sohitguptadevops.online
     ingressClass: azure-application-gateway
 
 getTask:
@@ -22,7 +22,7 @@ getTask:
   ServicePort: 80
   connectionString: "Driver={ODBC Driver 18 for SQL Server};Server=tcp:sohit-devsqlserver1.database.windows.net,1433;Database=sohit-devsqldb1;Uid=sqladminuser;Pwd=P@ssw0rd1234!;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;"
   ingress:
-    host: dev-get-tasks-api.sohitguptadevops.online
+    host: get-tasks-api.sohitguptadevops.online
     ingressClass: azure-application-gateway
 
 deleteTask:
@@ -34,7 +34,7 @@ deleteTask:
   ServicePort: 80
   connectionString: "Driver={ODBC Driver 18 for SQL Server};Server=tcp:sohit-devsqlserver1.database.windows.net,1433;Database=sohit-devsqldb1;Uid=sqladminuser;Pwd=P@ssw0rd1234!;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;"
   ingress:
-    host: dev-delete-task-api.sohitguptadevops.online
+    host: delete-task-api.sohitguptadevops.online
     ingressClass: azure-application-gateway
 
 addTask:
@@ -46,5 +46,5 @@ addTask:
   ServicePort: 80
   connectionString: "Driver={ODBC Driver 18 for SQL Server};Server=tcp:sohit-devsqlserver1.database.windows.net,1433;Database=sohit-devsqldb1;Uid=sqladminuser;Pwd=P@ssw0rd1234!;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;"
   ingress:
-    host: dev-add-task-api.sohitguptadevops.online
+    host: add-task-api.sohitguptadevops.online
     ingressClass: azure-application-gateway
