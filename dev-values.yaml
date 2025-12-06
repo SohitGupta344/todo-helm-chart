@@ -1,5 +1,5 @@
 common:
-  containerRegistryURL: sohitacrdev01.azurecr.io
+  containerRegistryURL: sohitacrdev02.azurecr.io
   ingressClass: azure-application-gateway
   
 ui:
@@ -20,7 +20,7 @@ getTask:
     tag: v2
   port: 8000
   ServicePort: 80
-  connectionString: "Driver={ODBC Driver 18 for SQL Server};Server=tcp:sohit-devsqlserver1.database.windows.net,1433;Database=sohit-devsqldb1;Uid=sqladminuser;Pwd=P@ssw0rd1234!;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;"
+  connectionString: Driver={ODBC Driver 18 for SQL Server};Server=tcp:sohit-devsqlserver2.database.windows.net,1433;Database=sohit-devsqldb2;Uid=sqladminuser;Pwd=P@ssw0rd1234!;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;
   ingress:
     host: get-tasks-api.sohitguptadevops.online
     ingressClass: azure-application-gateway
@@ -32,7 +32,7 @@ deleteTask:
     tag: v2
   port: 8000
   ServicePort: 80
-  connectionString: "Driver={ODBC Driver 18 for SQL Server};Server=tcp:sohit-devsqlserver1.database.windows.net,1433;Database=sohit-devsqldb1;Uid=sqladminuser;Pwd=P@ssw0rd1234!;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;"
+  connectionString: Driver={ODBC Driver 18 for SQL Server};Server=tcp:sohit-devsqlserver2.database.windows.net,1433;Database=sohit-devsqldb2;Uid=sqladminuser;Pwd=P@ssw0rd1234!;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;
   ingress:
     host: delete-task-api.sohitguptadevops.online
     ingressClass: azure-application-gateway
@@ -44,7 +44,7 @@ addTask:
     tag: v2
   port: 8000
   ServicePort: 80
-  connectionString: "Driver={ODBC Driver 18 for SQL Server};Server=tcp:sohit-devsqlserver1.database.windows.net,1433;Database=sohit-devsqldb1;Uid=sqladminuser;Pwd=P@ssw0rd1234!;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;"
+  connectionString: Driver={ODBC Driver 18 for SQL Server};Server=tcp:sohit-devsqlserver2.database.windows.net,1433;Database=sohit-devsqldb2;Uid=sqladminuser;Pwd=P@ssw0rd1234!;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;
   ingress:
     host: add-task-api.sohitguptadevops.online
     ingressClass: azure-application-gateway
