@@ -2,23 +2,46 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ .Release.Name }}-todo-get-task-api
+
 spec:
   replicas: {{ .Values.getTask.replicas }}
+
   selector:
     matchLabels:
       app: {{ .Release.Name }}-todo-get-task-api
+
   template:
     metadata:
       labels:
         app: {{ .Release.Name }}-todo-get-task-api
-    spec:
-      containers:
-      - name: {{ .Release.Name }}-todo-get-task-api
-        image: "{{ .Values.common.containerRegistryURL }}/{{ .Values.getTask.image.name }}:{{ .Values.getTask.image.tag }}"
-        ports:
-        - containerPort: {{ .Values.getTask.port }}
-        env: 
-        - name: CONNECTION_STRING
-          value: "{{ .Values.getTask.connectionString }}"
-          
+      azure.workload.identity/use: "true"
 
+    spec:
+      serviceAccountName: todoapp-sa
+
+      containers:
+        - name: {{ .Release.Name }}-todo-get-task-api
+          image: "{{ .Values.common.containerRegistryURL }}/{{ .Values.getTask.image.name }}:{{ .Values.getTask.image.tag }}"
+
+          ports:
+            - containerPort: {{ .Values.getTask.port }}
+
+          env:
+            - name: DB_CONNECTION_STRING
+              valueFrom:
+                secretKeyRef:
+                  name: todoapp-db-secret
+                  key: DB_CONNECTION_STRING
+
+          volumeMounts:
+            - name: secrets-store
+              mountPath: "/mnt/secrets-store"
+              readOnly: true
+
+      volumes:
+        - name: secrets-store
+          csi:
+            driver: secrets-store.csi.k8s.io
+            readOnly: true
+            volumeAttributes:
+              secretProviderClass: todoapp-keyvault
