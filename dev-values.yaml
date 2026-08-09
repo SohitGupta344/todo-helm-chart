@@ -26,7 +26,7 @@ ui:
 getTask:
   replicas: 2
   image:
-    name: todo-get-tasks-api
+    name: todo-get-task-api
     tag: v2
   port: 8000
   ServicePort: 80
