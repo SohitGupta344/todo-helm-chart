@@ -1,5 +1,5 @@
 common:
-  containerRegistryURL: sohitacrdev02.azurecr.io
+  containerRegistryURL: devacrdev001.azurecr.io
   ingressClass: azure-application-gateway
 
   serviceAccount:
